@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html class="light" lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AppleDaily | Новости Apple и технологий</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Inter:wght@100..900&family=Space+Grotesk:wght@300..700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#a43716",
+          "surface": "#fcf9f4",
+          "surface-container": "#f0ede8",
+          "primary-container": "#c54f2c",
+          "on-primary": "#ffffff",
+          "tertiary-container": "#008093",
+          "surface-container-highest": "#e5e2dd",
+          "tertiary": "#006575",
+          "surface-variant": "#e5e2dd",
+          "background": "#fcf9f4",
+          "surface-container-high": "#ebe8e3",
+          "on-background": "#1c1c19",
+          "inverse-primary": "#ffb5a0",
+          "on-surface": "#1c1c19",
+          "on-surface-variant": "#58423c",
+          "secondary-container": "#eae1d7",
+          "secondary": "#635e56",
+          "surface-container-low": "#f6f3ee",
+          "outline-variant": "#dfc0b7",
+          "surface-dim": "#dcdad5",
+          "outline": "#8b716a",
+          "primary-fixed": "#ffdbd1",
+          "on-primary-fixed": "#3b0900",
+        },
+        fontFamily: {
+          "headline": ["Newsreader"],
+          "body": ["Inter"],
+          "label": ["Space Grotesk"]
+        },
+        borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  .editorial-shadow {
+    box-shadow: 0px 12px 32px rgba(28, 28, 25, 0.06);
+  }
+  .glass-header {
+    background-color: rgba(252, 249, 244, 0.88);
+    backdrop-filter: blur(16px);
+  }
+  ::selection {
+    background-color: #ffdbd1;
+    color: #3b0900;
+  }
+  .ad-slot {
+    background-color: #f3f0eb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed rgba(28, 28, 25, 0.1);
+  }
+  .ad-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    color: rgba(28, 28, 25, 0.35);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+  /* Бегущая строка */
+  .ticker-wrap {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .ticker-content {
+    display: inline-block;
+    animation: ticker 40s linear infinite;
+  }
+  @keyframes ticker {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .source-badge {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(164, 55, 22, 0.7);
+    border: 1px solid rgba(164, 55, 22, 0.2);
+    padding: 2px 7px;
+    border-radius: 3px;
+  }
+  .time-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    color: rgba(28, 28, 25, 0.4);
+  }
+</style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+
+<!-- Leaderboard Ad -->
+<div class="w-full flex justify-center pt-5 bg-surface">
+  <div class="ad-slot w-[728px] h-[90px] max-w-full mx-4">
+    <span class="ad-label">Реклама</span>
+    <div class="text-[10px] text-on-surface-variant/25 uppercase tracking-[0.2em]">Leaderboard 728×90</div>
+  </div>
+</div>
+
+<!-- Бегущая строка новостей -->
+<div class="w-full bg-primary text-on-primary py-2 overflow-hidden">
+  <div class="flex items-center gap-4 px-4 max-w-screen-2xl mx-auto">
+    <span class="font-label text-[10px] uppercase tracking-widest bg-on-primary text-primary px-3 py-1 shrink-0">Срочно</span>
+    <div class="ticker-wrap flex-1">
+      <div class="ticker-content font-label text-[11px] uppercase tracking-wide opacity-90">
+        Apple представила новый MacBook Air M4 &nbsp;·&nbsp; iPhone 17 выйдет в сентябре 2026 &nbsp;·&nbsp; iOS 19.3 исправляет критическую уязвимость &nbsp;·&nbsp; Apple Vision Pro получил обновление visionOS 2.4 &nbsp;·&nbsp; Tim Cook провёл встречу с европейскими регуляторами &nbsp;·&nbsp;&nbsp;
+        Apple представила новый MacBook Air M4 &nbsp;·&nbsp; iPhone 17 выйдет в сентябре 2026 &nbsp;·&nbsp; iOS 19.3 исправляет критическую уязвимость &nbsp;·&nbsp; Apple Vision Pro получил обновление visionOS 2.4 &nbsp;·&nbsp; Tim Cook провёл встречу с европейскими регуляторами &nbsp;·&nbsp;
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="sticky top-0 z-50 glass-header border-b border-outline-variant/20">
+  <nav class="flex justify-between items-center w-full px-6 md:px-10 py-5 max-w-screen-2xl mx-auto">
+    <div class="flex items-center gap-10">
+      <a class="text-2xl font-bold font-headline text-on-surface tracking-tighter" href="#">AppleDaily</a>
+      <div class="hidden md:flex gap-7">
+        <a class="text-primary border-b-2 border-primary pb-1 font-label text-[11px] uppercase tracking-widest" href="#">Apple</a>
+        <a class="text-on-surface/60 font-label text-[11px] uppercase tracking-widest hover:text-primary transition-colors" href="#">Технологии</a>
+        <a class="text-on-surface/60 font-label text-[11px] uppercase tracking-widest hover:text-primary transition-colors" href="#">iPhone</a>
+        <a class="text-on-surface/60 font-label text-[11px] uppercase tracking-widest hover:text-primary transition-colors" href="#">Mac</a>
+        <a class="text-on-surface/60 font-label text-[11px] uppercase tracking-widest hover:text-primary transition-colors" href="#">Обзоры</a>
+        <a class="text-on-surface/60 font-label text-[11px] uppercase tracking-widest hover:text-primary transition-colors" href="#">Гайды</a>
+      </div>
+    </div>
+    <div class="flex items-center gap-5">
+      <button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">search</button>
+      <button class="bg-primary text-on-primary px-5 py-2 text-[11px] font-label uppercase tracking-widest hover:bg-primary-container transition-all duration-300">Подписаться</button>
+    </div>
+  </nav>
+</header>
+
+<main class="max-w-screen-2xl mx-auto px-6 md:px-10 pt-10">
+
+  <!-- Hero + Sidebar -->
+  <section class="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-20">
+
+    <!-- Hero статья -->
+    <div class="lg:col-span-7 flex flex-col justify-center order-2 lg:order-1">
+      <div class="flex items-center gap-3 mb-5">
+        <span class="bg-secondary-container text-on-surface px-3 py-1 rounded-full font-label text-[10px] uppercase tracking-widest">Главная тема</span>
+        <span class="time-label">2 часа назад</span>
+        <span class="source-badge">MacRumors</span>
+      </div>
+      <h1 class="font-headline italic text-5xl md:text-7xl lg:text-8xl leading-[0.92] tracking-tighter mb-7 text-on-surface">
+        MacBook Air<br/>с чипом M4:<br/>всё что нужно знать.
+      </h1>
+      <p class="font-body text-lg text-on-surface-variant max-w-xl leading-relaxed mb-8">
+        Apple официально представила обновлённый MacBook Air на базе чипа M4. Новая модель получила улучшенный Neural Engine, поддержку до 32 ГБ оперативной памяти и более яркий дисплей — разбираем все детали.
+      </p>
+      <div class="flex items-center gap-4 mb-8">
+        <div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container">
+          <div class="w-full h-full bg-primary/20 flex items-center justify-center font-label text-primary font-bold text-sm">АИ</div>
+        </div>
+        <div>
+          <p class="font-label text-xs uppercase tracking-wider font-bold">Авто-редактор</p>
+          <p class="font-label text-[10px] text-on-surface-variant/50 uppercase tracking-widest">Перевод: 9to5Mac</p>
+        </div>
+      </div>
+      <a href="#" class="inline-flex items-center gap-2 bg-primary text-on-primary px-7 py-3 font-label text-xs uppercase tracking-widest hover:bg-primary-container transition-all duration-300 w-fit">
+        Читать полностью
+        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+      </a>
+    </div>
+
+    <!-- Hero изображение -->
+    <div class="lg:col-span-5 order-1 lg:order-2">
+      <div class="relative h-[360px] lg:h-[620px] w-full bg-surface-container group overflow-hidden">
+        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter sepia-[0.1] contrast-[1.04]"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSDfQMsDJvY9ZvFY5i-lf-ZpU3_21V8BjDAjiNwmg01r6TUVWFf2YGNQIz2V1f2k8lTBYpOi1WfhIUbn-lrDtoih8SGNhA8b3_1azt63Qyn9hgoxhylAulJTWw0qEWx-IjWkxVpzPzcgGG-CUmOzEInoJXZiTFvLwcGvjC5zUkW_CX5hts_liB5tz_u9BPNqtJ7SfRU0itWh7mox_5kOAzgy0SN4Wm_JVt33Fh003qcPNs88utRX8jdHZfO5PdfyP40LzHTCqGWEM"
+          alt="MacBook Air M4"/>
+        <div class="absolute inset-0 bg-primary/5 mix-blend-multiply"></div>
+        <!-- время публикации поверх фото -->
+        <div class="absolute top-4 right-4 bg-on-surface/70 text-surface px-3 py-1 font-label text-[10px] uppercase tracking-widest">
+          28 марта, 14:32
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Последние новости -->
+  <section class="mb-10">
+    <div class="flex justify-between items-end mb-10 border-b border-outline-variant/30 pb-4">
+      <h2 class="font-headline text-4xl italic tracking-tight">Последние новости</h2>
+      <a class="font-label text-xs uppercase tracking-widest text-primary flex items-center gap-2 group" href="#">
+        Все новости
+        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-7 gap-y-14">
+
+      <!-- Новость 1 -->
+      <article class="group">
+        <div class="aspect-[4/3] bg-surface-container mb-5 overflow-hidden relative">
+          <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDV32xqlsv8XShdvR6LN8HsSAw1b3UOEkZoJgy19NM9hNQw_pXh8I4ncmvZOvG0Mmlpg46h5Mo3d-PW9QZ-ZRAuLG-k0F-rXB1MZUL68G1V_nkGgk8rxznIdmI3KtM-wHZHmaj3Mdl5Br9OkDTpOfp9hOuUMBptAs48MCz1oQpIBBqVmfKk0jiwuiq2yTwqK0w4KThpTpVlrzm738fPGaNrmODAyPU7NniwfW5mivkPXScOiHiVjri0HXY2LVLhZ67ghdMMKrQCj6U"
+            alt="M4 чип"/>
+        </div>
+        <div class="flex items-center gap-2 mb-3">
+          <span class="font-label text-[10px] uppercase tracking-widest text-primary">Mac</span>
+          <span class="text-on-surface-variant/30">·</span>
+          <span class="time-label">1 ч назад</span>
+          <span class="source-badge">9to5Mac</span>
+        </div>
+        <h3 class="font-headline text-xl leading-tight mb-2 group-hover:text-primary transition-colors">Переход на M4: производительность против восприятия</h3>
+        <p class="font-body text-sm text-on-surface-variant line-clamp-2">Насколько мощность реально нужна в ноутбуке? Сравниваем цифры и ощущения от работы.</p>
+      </article>
+
+      <!-- Новость 2 -->
+      <article class="group">
+        <div class="aspect-[4/3] bg-surface-container mb-5 overflow-hidden relative">
+          <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGHqhHmMNxHYaB7GOFFldRtsj1yFNhkZ-Ny-qi9Qcuh9G4ylbcYpzyZuz35DRSgWIainvIgeNNF5wrU3_ISwSsC1mTNj4zGDI_GRFfAAQAIV18heNWzbZ4SEX-SzgI0OWdS64HPDPT8BinPoJf2eo1G85bIPPldmMAd7eGJN3LnatTtpx5uXJCWjaIruQRgCoVenLF50VrXLnkl1Kn5PxOeVBRtoUlqLU2ACBp5wQJxF_CzrxJ0YuB93PwPA7DNnxhjrF8O-f0LXs"
+            alt="iOS 19"/>
+        </div>
+        <div class="flex items-center gap-2 mb-3">
+          <span class="font-label text-[10px] uppercase tracking-widest text-primary">iOS</span>
+          <span class="text-on-surface-variant/30">·</span>
+          <span class="time-label">3 ч назад</span>
+          <span class="source-badge">MacRumors</span>
+        </div>
+        <h3 class="font-headline text-xl leading-tight mb-2 group-hover:text-primary transition-colors">iOS 19.3 бета: что нового в функциях Apple Intelligence</h3>
+        <p class="font-body text-sm text-on-surface-variant line-clamp-2">Разработчики нашли скрытые изменения в новой бета-версии операционной системы.</p>
+      </article>
+
+      <!-- Новость 3 -->
+      <article class="group">
+        <div class="aspect-[4/3] bg-surface-container mb-5 overflow-hidden relative">
+          <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuClmalYbhKcHbrkAOtEKw0nBlE3-0Vurb89Pd0uou7w_9OR7DtoWXyhcPlVhra-mP3x8DLHvDNRHyEP3n7C7U-vqcusDbSjFEbSpc3Wx6c7xBSjjk9MBSv44d5dgzasW2XXwZ2vYuyJwb6Con5iazycKHpBFG7LPBftTATSYSvYzTXg3FsQVpUSFDJVdvj4d5ujd_TlM6Q6zGuFNNzqE_ufpS-HNJSr6SnQhUdLwwMQAH_mByKLIdmiq79waODcBG1PJNk25GpU_hU"
+            alt="Apple Watch"/>
+        </div>
+        <div class="flex items-center gap-2 mb-3">
+          <span class="font-label text-[10px] uppercase tracking-widest text-primary">Apple Watch</span>
+          <span class="text-on-surface-variant/30">·</span>
+          <span class="time-label">5 ч назад</span>
+          <span class="source-badge">AppleInsider</span>
+        </div>
+        <h3 class="font-headline text-xl leading-tight mb-2 group-hover:text-primary transition-colors">Apple Watch Series 11: первые утечки дизайна</h3>
+        <p class="font-body text-sm text-on-surface-variant line-clamp-2">Новые рендеры указывают на переработанный корпус и новый датчик здоровья.</p>
+      </article>
+
+      <!-- Новость 4 -->
+      <article class="group">
+        <div class="aspect-[4/3] bg-surface-container mb-5 overflow-hidden relative">
+          <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKbzgJRA3QsHFvNAeNqmHjgiCiqK72ySnmhwGGBSgp_nuUPwYBpfd091EQwnwN7B8AdWRWVDnLGdECGubJyKLbY5XohlWyprj3h5adtN0U8W8d5u--_wLaojbSUE8yftSJFRVcL52T26DKiqEdXMXAS-TeT2OsUJNQFGRiwaSQTA8TfdG2HmAB5BUi8LCeC0BzreUkl34cDuqMUKew-uL6ztz7KQKqVZWCfQV8SP4ZGYf4VLM4IyY"
+            alt="App Store"/>
+        </div>
+        <div class="flex items-center gap-2 mb-3">
+          <span class="font-label text-[10px] uppercase tracking-widest text-primary">App Store</span>
+          <span class="text-on-surface-variant/30">·</span>
+          <span class="time-label">7 ч назад</span>
+          <span class="source-badge">The Verge</span>
+        </div>
+        <h3 class="font-headline text-xl leading-tight mb-2 group-hover:text-primary transition-colors">Как новые правила ЕС меняют App Store для всех</h3>
+        <p class="font-body text-sm text-on-surface-variant line-clamp-2">Apple вынуждена открыть альтернативные магазины приложений. Что это значит для разработчиков.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Inline Ad -->
+  <div class="w-full flex justify-center mb-12">
+    <div class="ad-slot w-[728px] h-[90px] max-w-full mx-4">
+      <span class="ad-label">Реклама</span>
+      <div class="text-[10px] text-on-surface-variant/25 uppercase tracking-[0.2em]">Inline Banner 728×90</div>
+    </div>
+  </div>
+
+  <!-- Горячие темы (была Gaming Pulse) -->
+  <section class="relative -mx-6 md:-mx-10 px-6 md:px-10 py-20 bg-surface-container overflow-hidden">
+    <div class="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-14">
+
+      <!-- Лента коротких новостей -->
+      <div class="lg:col-span-3">
+        <div class="sticky top-28">
+          <h2 class="font-headline text-4xl mb-5 italic">Коротко</h2>
+          <p class="font-body text-on-surface-variant mb-7 text-sm leading-relaxed">
+            Быстрые новости без лишних слов — всё важное за последние 24 часа.
+          </p>
+          <ul class="space-y-5">
+            <li class="flex items-start gap-3 group cursor-pointer border-b border-outline-variant/20 pb-5">
+              <span class="font-label text-primary font-bold text-sm shrink-0">01.</span>
+              <div>
+                <h4 class="font-body font-semibold text-sm group-hover:text-primary transition-colors leading-snug">Apple Pay расширяется на новые рынки</h4>
+                <div class="flex items-center gap-2 mt-1">
+                  <span class="time-label">2 ч назад</span>
+                  <span class="source-badge">Bloomberg</span>
+                </div>
+              </div>
+            </li>
+            <li class="flex items-start gap-3 group cursor-pointer border-b border-outline-variant/20 pb-5">
+              <span class="font-label text-primary font-bold text-sm shrink-0">02.</span>
+              <div>
+                <h4 class="font-body font-semibold text-sm group-hover:text-primary transition-colors leading-snug">iPad mini 7 замечен в базе данных регулятора</h4>
+                <div class="flex items-center gap-2 mt-1">
+                  <span class="time-label">4 ч назад</span>
+                  <span class="source-badge">9to5Mac</span>
+                </div>
+              </div>
+            </li>
+            <li class="flex items-start gap-3 group cursor-pointer">
+              <span class="font-label text-primary font-bold text-sm shrink-0">03.</span>
+              <div>
+                <h4 class="font-body font-semibold text-sm group-hover:text-primary transition-colors leading-snug">Новый HomePod может получить экран</h4>
+                <div class="flex items-center gap-2 mt-1">
+                  <span class="time-label">6 ч назад</span>
+                  <span class="source-badge">MacRumors</span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Главный материал -->
+      <div class="lg:col-span-6">
+        <div class="flex flex-col gap-7">
+          <div class="bg-surface p-7 editorial-shadow group cursor-pointer border-b-2 border-transparent hover:border-primary transition-all duration-300">
+            <div class="aspect-video mb-5 overflow-hidden">
+              <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVTvyt0gRbudWrnJ2pnyGzVjoIosK9OxEzuacABPyoEq8a8c1eQ_nvImuKUML9gBcagpYAKGpxFwNZTXYqvuGUzoJJyhF86k55nl9NywOPkU07sWifVh8VxbOlbGCK6XGGsaBC2wclWSlGjtKFw1eB-CLcneC9a30jX7Knw4npz1E46axrNeOSvZFxBA_QlDN-SYvvAWMeabH1zAK8xI--9qtk8mc9sdP29NiIU5A-_uo6emRLbrLrcHgyhzlijyDlxOwOKl6ie9k"
+                alt="Apple Intelligence"/>
+            </div>
+            <div class="flex items-center gap-2 mb-3">
+              <span class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant/50">Разбор</span>
+              <span class="text-on-surface-variant/30">·</span>
+              <span class="time-label">Сегодня, 11:00</span>
+              <span class="source-badge">Ars Technica</span>
+            </div>
+            <h3 class="font-headline text-3xl mb-3 leading-tight">Apple Intelligence: полгода спустя — работает ли это?</h3>
+            <p class="font-body text-sm text-on-surface-variant mb-5">Подробный анализ того, выполнила ли Apple обещания об ИИ-функциях. Спойлер: результаты неоднозначные.</p>
+            <span class="text-primary font-label text-xs uppercase tracking-widest font-bold">Читать разбор</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-7">
+            <div class="bg-surface p-5 editorial-shadow flex gap-5 items-center group cursor-pointer hover:border-l-2 hover:border-primary transition-all">
+              <div class="w-18 h-18 shrink-0 bg-surface-container overflow-hidden" style="width:72px;height:72px">
+                <img class="w-full h-full object-cover"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeTcJlVTF3ZqsLlQCWW3s793BU9nB3Lj1PYtQsMwt54obK4RoXqgp3d3wrsiP2TKx6vkQohO0zDFJ4BSSfnjThtEQsx4nItTYhGgi57JOR3_LgrcKwwWHHiwJY9Nnz6hWtR4FjrR0lyYVq7O18cJiR_7SEiTUB3jFCAQdQVc_eYrIH2fT2HY78fsvv8MI18qab_N0qzkaUEbtnkLbUf_uGbA-JdmKjw-52wKCzhCJTKGmgxdS7BWQKtf7R9ze9WxLS1-cNA4MplFE"
+                  alt="AirPods"/>
+              </div>
+              <div>
+                <h4 class="font-headline text-base mb-1 group-hover:text-primary transition-colors">AirPods Pro 3: утечки характеристик</h4>
+                <p class="text-[10px] text-on-surface-variant/60 leading-tight">Новый чип и более долгий заряд.</p>
+                <div class="flex items-center gap-2 mt-2">
+                  <span class="time-label">8 ч назад</span>
+                  <span class="source-badge">9to5Mac</span>
+                </div>
+              </div>
+            </div>
+            <div class="bg-surface p-5 editorial-shadow flex gap-5 items-center group cursor-pointer hover:border-l-2 hover:border-primary transition-all">
+              <div class="w-18 h-18 shrink-0 bg-surface-container overflow-hidden" style="width:72px;height:72px">
+                <img class="w-full h-full object-cover"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp5xtx3PqReBfyXuE5k8qxA4jcOFXCHF-u3rSLQsp7lbAKk8yH3GZxnJQTZkWf8rH2VzgWA2LvAFhBLWcSmxMsmpJQPPd8UAZXT01grBJr95Dz2TJJh1FXHrR7mh7kDQD6GqjW5Dz7lQJxjFfqBd_JFDO7cBrVPU0c3s5ZjM-mlbU8WTBqK1-jxe70mlJFVBqBCyOPKBDI9A-TbSRUv_htGdcbL6ufk7OBq-cRe0yGqFAMGb4pZLV2c"
+                  alt="iCloud"/>
+              </div>
+              <div>
+                <h4 class="font-headline text-base mb-1 group-hover:text-primary transition-colors">iCloud+ получил новые функции приватности</h4>
+                <p class="text-[10px] text-on-surface-variant/60 leading-tight">Защита ещё надёжнее.</p>
+                <div class="flex items-center gap-2 mt-2">
+                  <span class="time-label">10 ч назад</span>
+                  <span class="source-badge">MacRumors</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Рекламный сайдбар -->
+      <div class="lg:col-span-3">
+        <div class="sticky top-28 flex flex-col gap-7">
+          <div class="ad-slot w-full h-[600px]">
+            <span class="ad-label">Реклама</span>
+            <div class="text-[10px] text-on-surface-variant/25 uppercase tracking-[0.2em] px-4 text-center">Vertical 300×600</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Подробные материалы -->
+  <section class="py-20">
+    <div class="text-center mb-14">
+      <span class="font-label text-xs uppercase tracking-[0.3em] text-primary font-bold">Глубокий разбор</span>
+      <h2 class="font-headline text-5xl italic mt-3">Аналитика</h2>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+      <div class="group cursor-pointer">
+        <div class="relative aspect-[4/3] overflow-hidden mb-7">
+          <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDadTUnKQegepkGn9YWzdevmY-fyuacGVIepRkBnsCGgujWchyHO6hMf-GYmbC3gjfoBlBTv4jFFCf6UqIKlXk7OEfiFAf341DAJpKeluppzh8ZarTCU1yEPdmq8mrf8cewXyHGI_ymYxjQI6ZVaQVAJN5JhZZHFbgZL-umLSBNfGbZWTNg798o1YXheahkcT4iZ5PpSLycQc-peeePIfnW4Sv8gYo_S56OVFt_uYc5alatHHD7tjRvPeVyfxZk0xel7qjABgz-JTY"
+            alt="Apple история"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 to-transparent flex flex-col justify-end p-10">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-surface/60 font-label text-[10px] uppercase tracking-widest">Март 2026</span>
+              <span class="text-surface/40">·</span>
+              <span class="text-surface/60 font-label text-[10px] uppercase tracking-widest">15 мин чтения</span>
+            </div>
+            <h3 class="text-surface font-headline text-4xl italic leading-tight mb-3">Как Apple изменила понятие «премиум» навсегда</h3>
+            <p class="text-surface/65 font-body text-sm max-w-md">От пластиковых корпусов до алюминия авиационного класса — история ценовой стратегии Купертино.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-10 justify-center">
+        <article class="flex flex-col md:flex-row gap-7 group cursor-pointer">
+          <div class="w-full md:w-44 h-44 shrink-0 bg-surface-container overflow-hidden">
+            <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV_wDAqzZhkwhWIFd9pkmlb6SJt5lf3y8SYCWrErvExmlr0ayt0R-UBWJ7dLoJzOFul_po-LSt9hf0H4k4y7nUmUfcTrOX_IOGKhUAVfeIjd6pg6O_9u5Rdt2171wZMHSoOInInM730scMVkcKa5n6-rLDs7eSY40MaZc0SJRaSvkW6sF8q9gPEYsGV8HFV-pMmZX11ZoysKzlHbjYCm6xYGAKXzGnZyMI3dqgc9rZHj4052MM-nXpws4tJLpF3CNZvbFcTUC19DA"
+              alt="Apple Silicon"/>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="font-label text-[10px] uppercase tracking-widest text-primary">Железо</span>
+              <span class="source-badge">Ars Technica</span>
+            </div>
+            <h3 class="font-headline text-2xl mb-2 group-hover:italic transition-all leading-tight">Apple Silicon: четыре года спустя</h3>
+            <p class="font-body text-sm text-on-surface-variant leading-relaxed mb-3">Как отказ от Intel изменил весь рынок ноутбуков и заставил конкурентов переосмыслить архитектуры.</p>
+            <span class="font-label text-[10px] text-on-surface-variant/40 uppercase tracking-widest">Февраль 2026 · 18 мин</span>
+          </div>
+        </article>
+
+        <article class="flex flex-col md:flex-row gap-7 group cursor-pointer">
+          <div class="w-full md:w-44 h-44 shrink-0 bg-surface-container overflow-hidden">
+            <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAhov2CwytYfQg8Pp0KzrMNxNy4cIzBPmAPSgyAvlV4aAUL3Cg1DeVIuMLmiwy8sLMlLXc3VuUaGVwPnpoOTMK7iJ0fdF5Gu2hUd4x_hrpV_RwUmU3MLtMaRRjejLg_gf6e41dZguogysI6DrJLPLO8UIG6OwqeOGrs911chjbAz24NX9W5k4Q"
+              alt="iPhone камера"/>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="font-label text-[10px] uppercase tracking-widest text-primary">iPhone</span>
+              <span class="source-badge">The Verge</span>
+            </div>
+            <h3 class="font-headline text-2xl mb-2 group-hover:italic transition-all leading-tight">Камера iPhone и смерть компакта</h3>
+            <p class="font-body text-sm text-on-surface-variant leading-relaxed mb-3">Почему продажи цифровых камер рухнули на 80% за десять лет и кто в этом виноват.</p>
+            <span class="font-label text-[10px] text-on-surface-variant/40 uppercase tracking-widest">Январь 2026 · 12 мин</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="mb-20 bg-primary px-8 md:px-20 py-14 text-on-primary grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+    <div>
+      <h2 class="font-headline text-5xl italic leading-none mb-5">Дайджест AppleDaily</h2>
+      <p class="font-body text-lg text-on-primary/75 max-w-md">Лучшие новости Apple и технологий — каждое утро в вашей почте. Без спама, только главное.</p>
+    </div>
+    <form class="flex flex-col md:flex-row gap-4">
+      <input class="flex-grow bg-primary-container border-none text-on-primary placeholder:text-on-primary/40 px-6 py-4 font-label text-sm uppercase tracking-widest focus:ring-2 focus:ring-on-primary"
+        placeholder="ВАШ@EMAIL.COM" type="email"/>
+      <button class="bg-on-primary text-primary px-10 py-4 font-label font-bold text-xs uppercase tracking-[0.2em] hover:bg-surface transition-colors" type="submit">
+        Подписаться
+      </button>
+    </form>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#f6f3ee] mt-16">
+  <div class="flex flex-col md:flex-row justify-between items-center w-full px-10 py-14 gap-7 border-t border-on-surface/5 max-w-screen-2xl mx-auto">
+    <div class="flex flex-col gap-3 items-center md:items-start">
+      <span class="font-headline text-xl font-semibold text-on-surface">AppleDaily</span>
+      <p class="font-body text-xs text-on-surface-variant/55 max-w-xs text-center md:text-left">Новости Apple и технологий на русском языке. Переводим лучшее из мировых изданий.</p>
+    </div>
+    <div class="flex gap-7">
+      <a class="text-on-surface/55 font-body text-sm hover:text-primary transition-all">О нас</a>
+      <a class="text-on-surface/55 font-body text-sm hover:text-primary transition-all">Источники</a>
+      <a class="text-on-surface/55 font-body text-sm hover:text-primary transition-all">Реклама</a>
+      <a class="text-on-surface/55 font-body text-sm hover:text-primary transition-all">Конфиденциальность</a>
+      <a class="text-on-surface/55 font-body text-sm hover:text-primary transition-all">Контакты</a>
+    </div>
+    <div class="text-on-surface/45 font-body text-[10px] uppercase tracking-widest text-center md:text-right">
+      © 2026 AppleDaily.<br/>
+      <span class="opacity-50">Переводы с MacRumors, 9to5Mac, The Verge и других.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

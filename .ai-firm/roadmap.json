@@ -1,0 +1,83 @@
+{
+  "goal": "Запустить iphonefeed.news в полностью рабочем, монетизируемом и SEO-оптимизированном состоянии",
+  "phases": [
+    {
+      "id": 1,
+      "agent": "devops",
+      "title": "Настройка Git и удаление дыры безопасности",
+      "description": "Добавить git remote, запушить коммит с включённым cron. Удалить /rm_og_setup.php с сервера через Hostinger Files API",
+      "status": "pending"
+    },
+    {
+      "id": 2,
+      "agent": "tester",
+      "title": "Проверка автопостера",
+      "description": "Убедиться что GitHub Actions cron работает: новые статьи появляются на сайте каждые 2 часа",
+      "status": "pending"
+    },
+    {
+      "id": 3,
+      "agent": "devops",
+      "title": "Исправить miniOrange — разрешить ботов",
+      "description": "miniOrange блокирует Googlebot и Yandexbot — добавить исключения для краулеров",
+      "status": "pending"
+    },
+    {
+      "id": 4,
+      "agent": "developer",
+      "title": "Подключить Google Analytics 4",
+      "description": "Вставить GA4 тег в WordPress тему, настроить базовые события (просмотры, источники)",
+      "status": "pending"
+    },
+    {
+      "id": 5,
+      "agent": "seo_specialist",
+      "title": "Аудит robots.txt и технического SEO",
+      "description": "Проверить robots.txt, canonical теги, schema.org, hreflang — заполнить пробелы из SEO Knowledge Gaps",
+      "status": "pending"
+    },
+    {
+      "id": 6,
+      "agent": "devops",
+      "title": "Подключить рекламные сети",
+      "description": "Зарегистрироваться и вставить коды Яндекс РСЯ + Google AdSense в WP тему на заготовленные слоты",
+      "status": "pending"
+    },
+    {
+      "id": 7,
+      "agent": "seo_specialist",
+      "title": "Подача в Google News",
+      "description": "Подготовить заявку: проверить требования, убедиться что сайт соответствует, подать через GSC",
+      "status": "pending"
+    },
+    {
+      "id": 8,
+      "agent": "developer",
+      "title": "SEO-улучшение GPT-промпта",
+      "description": "Добавить в промпт: инструкции по H2-структуре, мета-описанию (max 155 симв.), ключевым словам — без изменения тона",
+      "status": "pending"
+    },
+    {
+      "id": 9,
+      "agent": "developer",
+      "title": "Решить проблему SQLite (дедупликация)",
+      "description": "Заменить SQLite на MySQL/PostgreSQL Hostinger или внешний кеш — устранить риск дублей между запусками",
+      "status": "pending"
+    },
+    {
+      "id": 10,
+      "agent": "consumer_reviewer",
+      "title": "Логотип и OG-баннер",
+      "description": "Создать логотип iphonefeed.news + брендовый OG-баннер 1200×630px — загрузить в WP",
+      "status": "pending"
+    },
+    {
+      "id": 11,
+      "agent": "devops",
+      "title": "Запуск appledaily.co.il",
+      "description": "Код готов, домен нужен — зарегистрировать домен, настроить хостинг, задеплоить IL-версию автопостера",
+      "status": "pending"
+    }
+  ],
+  "created_at": "2026-04-15T00:37:30.192530"
+}

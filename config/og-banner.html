@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1200">
+  <title>OG Banner — iphonefeed.news</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background: #0d0d0d;
+    }
+
+    .banner {
+      width: 1200px;
+      height: 630px;
+      background: #0d0d0d;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 0 96px;
+      overflow: hidden;
+      font-family: -apple-system, "SF Pro Display", "SF Pro Text", BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    /* Subtle radial glow behind logo */
+    .banner::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 900px;
+      height: 500px;
+      background: radial-gradient(ellipse at center, rgba(0, 113, 227, 0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Decorative large Apple glyph — watermark background */
+    .watermark {
+      position: absolute;
+      right: -30px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 420px;
+      line-height: 1;
+      color: rgba(255, 255, 255, 0.03);
+      user-select: none;
+      pointer-events: none;
+    }
+
+    /* Main logo text */
+    .logo {
+      position: relative;
+      font-size: 88px;
+      font-weight: 700;
+      letter-spacing: -2px;
+      color: #ffffff;
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+
+    .logo .domain-accent {
+      color: #0071e3;
+    }
+
+    /* Thin divider line under logo */
+    .divider {
+      position: relative;
+      width: 72px;
+      height: 3px;
+      background: #0071e3;
+      border-radius: 2px;
+      margin-bottom: 28px;
+    }
+
+    /* Subtitle */
+    .subtitle {
+      position: relative;
+      font-size: 32px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.60);
+      letter-spacing: 0.2px;
+    }
+
+    /* Apple icon — bottom right */
+    .apple-mark {
+      position: absolute;
+      bottom: 52px;
+      right: 96px;
+      font-size: 42px;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1;
+      user-select: none;
+    }
+
+    /* Bottom blue bar */
+    .bottom-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 1200px;
+      height: 4px;
+      background: #0071e3;
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+
+    <!-- Background watermark Apple glyph -->
+    <div class="watermark"></div>
+
+    <!-- Logo -->
+    <div class="logo">
+      iphonefeed<span class="domain-accent">.news</span>
+    </div>
+
+    <!-- Accent line -->
+    <div class="divider"></div>
+
+    <!-- Subtitle -->
+    <div class="subtitle">Новости Apple на русском</div>
+
+    <!-- Small Apple mark, bottom right -->
+    <div class="apple-mark"></div>
+
+    <!-- Bottom accent bar -->
+    <div class="bottom-bar"></div>
+
+  </div>
+</body>
+</html>

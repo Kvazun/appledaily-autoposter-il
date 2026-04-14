@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <!-- Background gradient: black to dark grey -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#000000;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a1a;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Subtle radial glow behind iPhone icon -->
+    <radialGradient id="glowGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#007AFF;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#007AFF;stop-opacity:0" />
+    </radialGradient>
+
+    <!-- Blue accent gradient for line -->
+    <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#007AFF;stop-opacity:0" />
+      <stop offset="20%" style="stop-color:#007AFF;stop-opacity:1" />
+      <stop offset="80%" style="stop-color:#007AFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#007AFF;stop-opacity:0" />
+    </linearGradient>
+
+    <!-- Clip path for rounded corners on the whole banner -->
+    <clipPath id="bannerClip">
+      <rect width="1200" height="630" rx="0" ry="0"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+
+  <!-- Subtle grid pattern (decorative) -->
+  <g opacity="0.04" stroke="#ffffff" stroke-width="1">
+    <!-- Vertical lines -->
+    <line x1="120" y1="0" x2="120" y2="630"/>
+    <line x1="240" y1="0" x2="240" y2="630"/>
+    <line x1="360" y1="0" x2="360" y2="630"/>
+    <line x1="480" y1="0" x2="480" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="720" y1="0" x2="720" y2="630"/>
+    <line x1="840" y1="0" x2="840" y2="630"/>
+    <line x1="960" y1="0" x2="960" y2="630"/>
+    <line x1="1080" y1="0" x2="1080" y2="630"/>
+    <!-- Horizontal lines -->
+    <line x1="0" y1="90" x2="1200" y2="90"/>
+    <line x1="0" y1="180" x2="1200" y2="180"/>
+    <line x1="0" y1="270" x2="1200" y2="270"/>
+    <line x1="0" y1="360" x2="1200" y2="360"/>
+    <line x1="0" y1="450" x2="1200" y2="450"/>
+    <line x1="0" y1="540" x2="1200" y2="540"/>
+  </g>
+
+  <!-- Glow behind iPhone -->
+  <ellipse cx="260" cy="315" rx="200" ry="200" fill="url(#glowGradient)"/>
+
+  <!-- iPhone icon — minimalist outline, centered-left -->
+  <g transform="translate(155, 165)">
+    <!-- iPhone body -->
+    <rect x="0" y="0" width="210" height="300" rx="30" ry="30"
+          fill="none" stroke="#007AFF" stroke-width="6"/>
+    <!-- Screen area -->
+    <rect x="14" y="38" width="182" height="224" rx="6" ry="6"
+          fill="#007AFF" opacity="0.08"/>
+    <!-- Home bar (Face ID era) -->
+    <rect x="70" y="268" width="70" height="8" rx="4" ry="4"
+          fill="#007AFF" opacity="0.6"/>
+    <!-- Notch / Dynamic Island -->
+    <rect x="70" y="14" width="70" height="16" rx="8" ry="8"
+          fill="#007AFF" opacity="0.5"/>
+    <!-- Side button (right) -->
+    <rect x="210" y="80" width="8" height="40" rx="4" ry="4"
+          fill="#007AFF" opacity="0.6"/>
+    <!-- Volume buttons (left) -->
+    <rect x="-8" y="70" width="8" height="28" rx="4" ry="4"
+          fill="#007AFF" opacity="0.6"/>
+    <rect x="-8" y="108" width="8" height="28" rx="4" ry="4"
+          fill="#007AFF" opacity="0.6"/>
+    <!-- Mute switch (left) -->
+    <rect x="-8" y="46" width="8" height="14" rx="4" ry="4"
+          fill="#007AFF" opacity="0.4"/>
+  </g>
+
+  <!-- Apple logo small on the iPhone screen area -->
+  <g transform="translate(238, 268)" fill="#007AFF" opacity="0.35">
+    <path d="M12 2.4c1.6-2 4.1-2.4 4.1-2.4s0.4 2.4-1.2 4.4c-1.7 2.1-3.6 1.8-3.6 1.8S10.4 4.3 12 2.4z
+             M11.3 7.2c0.9 0 2.5-1.2 4.6-1.2 3.6 0 5 2.6 5 2.6s-2.8 1.4-2.8 4.8c0 3.9 3.4 5.2 3.4 5.2
+             s-2.4 6.7-5.6 6.7c-1.5 0-2.6-1-4-1-1.4 0-2.8 1-4 1-3 0-6.9-6.3-6.9-11.4
+             C1 9.2 4 6 7.4 6c1.6 0 3 1.2 3.9 1.2z"/>
+  </g>
+
+  <!-- Thin blue accent line -->
+  <rect x="0" y="410" width="1200" height="2" fill="url(#lineGradient)"/>
+
+  <!-- Main headline: "iphonefeed" -->
+  <text
+    x="430"
+    y="295"
+    font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="96"
+    font-weight="700"
+    letter-spacing="-2"
+    fill="#ffffff">iphonefeed</text>
+
+  <!-- ".news" in Apple blue -->
+  <text
+    x="430"
+    y="375"
+    font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+    font-size="72"
+    font-weight="700"
+    letter-spacing="-1"
+    fill="#007AFF">.news</text>
+
+  <!-- Subtitle -->
+  <text
+    x="430"
+    y="460"
+    font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif"
+    font-size="32"
+    font-weight="400"
+    letter-spacing="0.5"
+    fill="#888888">Все новости Apple на русском</text>
+
+  <!-- Thin top border accent -->
+  <rect x="0" y="0" width="1200" height="3" fill="#007AFF" opacity="0.8"/>
+
+  <!-- Bottom domain watermark -->
+  <text
+    x="430"
+    y="558"
+    font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif"
+    font-size="22"
+    font-weight="300"
+    letter-spacing="3"
+    fill="#444444">iphonefeed.news</text>
+
+  <!-- Decorative blue dot before domain -->
+  <circle cx="412" cy="548" r="5" fill="#007AFF" opacity="0.7"/>
+
+</svg>

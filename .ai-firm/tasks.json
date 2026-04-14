@@ -1,0 +1,44 @@
+{
+  "0856aad4": {
+    "id": "0856aad4",
+    "thread_id": "1ab103cc",
+    "project_id": "2c13ec2f",
+    "agent": "developer",
+    "title": "обновить robots.txt на сайте iphonefeed.news — загрузить проектный файл вместо дефолтного. CEO не требуется.",
+    "goal": "это от меня нужны действия???",
+    "status": "error",
+    "model": "sonnet",
+    "created_at": "2026-04-14T22:27:35.745224",
+    "result": "⏱️ **Senior Developer не успел** за 120с [sonnet]\n\nПопробуйте:\n- Разбить задачу на более мелкие\n- Сменить модель на haiku в Настройках",
+    "started_at": "2026-04-14T22:27:35.745931",
+    "finished_at": "2026-04-14T22:29:35.752017"
+  },
+  "9c27f6ad": {
+    "id": "9c27f6ad",
+    "thread_id": "28d41865",
+    "project_id": "2c13ec2f",
+    "agent": "developer",
+    "title": "Восстанови cron-расписание в файле `/Users/romanzh/Downloads/appledaily-project/.github/workflows/autoposter.yml`. Нужно",
+    "goal": "что ты делаещь ????? зачем остановил автопостер???",
+    "status": "done",
+    "model": "sonnet",
+    "created_at": "2026-04-15T00:34:05.889180",
+    "result": "Remote не настроен. Нужен URL репозитория на GitHub, чтобы добавить remote и запушить.\n\n**Что сделано:**\n- Раскомментированы строки 4-6 в `autoposter.yml` — cron `0 */2 * * *` активен\n- Коммит создан: `ed9f4cf feat: re-enable autoposter cron schedule every 2 hours`\n\n**Проблема:** в локальном репо нет настроенного git remote `origin`. Пуш невозможен.\n\n**Нужно:** укажи URL GitHub-репозитория (например `https://github.com/username/appledaily-project.git`), выполню:\n```bash\ngit remote add origin <URL>\ngit push origin main\n```",
+    "started_at": "2026-04-15T00:34:05.890575",
+    "finished_at": "2026-04-15T00:34:25.641666"
+  },
+  "fc908999": {
+    "id": "fc908999",
+    "thread_id": "39cc4cae",
+    "project_id": "2c13ec2f",
+    "agent": "devops_engineer",
+    "title": "**",
+    "goal": "дальще",
+    "status": "done",
+    "model": "haiku",
+    "created_at": "2026-04-15T00:52:06.214111",
+    "result": "## DevOps Фаза 1: Анализ и сбор требований\n\nЯ провел инвентаризацию состояния проекта. Вот что я нашел:\n\n### ✅ ЧТО УЖЕ ГОТОВО:\n1. **robots.txt** — существует в config/, содержит корректные правила и указывает на sitemap\n2. **OG-баннер** — config/og-banner.html содержит дизайн 1200×630, но нужна растровая версия (PNG/JPG)\n3. **Креденшалы WP** — есть в .env (пароль: `u55r&Lw^WX5!Y9p249O%ppmx`)\n\n### ⚠️ БЛОКИРУЮЩИЕ ПРОБЛЕМЫ (нужен ваш ввод):\n\n| Задача | Статус | Что нужно | \n|--------|--------|----------|\n| **SSH доступ к iphonefeed.news** | 🔴 БЛОКИРОВАНО | SSH ключ или Hostinger hPanel креденшалы",
+    "started_at": "2026-04-15T00:52:06.215386",
+    "finished_at": "2026-04-15T00:53:03.229513"
+  }
+}

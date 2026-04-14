@@ -1,0 +1,112 @@
+[
+  {
+    "id": "eccbcafc",
+    "sender": "project_manager",
+    "type": "access",
+    "subject": "PM нужен доступ/credentials",
+    "body": "**Что нужно:** FTP/SFTP или SSH данные для Hostinger (имя пользователя + пароль)\n\n**Ситуация:**\n- Файл `config/robots.txt` готов и оптимизирован\n- WordPress REST API заблокирован miniOrange (401)\n- Кастомный API (`/iphonefeed/v1/`) — только для постов, файлы не поддерживает\n- Единственный надёжный путь — прямая загрузка файла на сервер\n\n**Где взять:**\nHostinger hPanel → Сайты → SSH/FTP доступ (или: настройки → FTP аккаунты)\n\n**Что сделаем после:** одна команда `curl` или `sftp` — загрузим robots.txt прямо в корень сайта (`/public_html/robots.txt`). Займёт 30 секунд.\n\n---\n\n*Альтернатива:* если не хочешь давать FTP — зайди в hPanel → File Manager → `/public_html/` → загрузи файл `config/robots.txt` вручную (1 мин). Содержимое файла уже готово в проекте.",
+    "status": "resolved",
+    "ts": "2026-04-14T23:30:58.742779",
+    "thread_id": "6205c8da",
+    "project_id": "2c13ec2f",
+    "decision": "ANSWERED"
+  },
+  {
+    "id": "e3292aa1",
+    "sender": "project_manager",
+    "type": "access",
+    "subject": "PM нужен доступ/credentials",
+    "body": "**Что нужно:** Hostinger API Token\n**Где взять:** Hostinger Panel → Account → API Access (или hPanel → Developer Tools)\n**Для чего:** Подключу `hostinger-api-mcp`, загружу `config/robots.txt` на сервер iphonefeed.news\n\nВсё остальное (конфиг MCP, сам файл, загрузка) — готово. Жду только токен.",
+    "status": "resolved",
+    "ts": "2026-04-14T23:37:40.821607",
+    "thread_id": "86409424",
+    "project_id": "2c13ec2f",
+    "decision": "ANSWERED"
+  },
+  {
+    "id": "c85c1968",
+    "sender": "project_manager",
+    "type": "access",
+    "subject": "PM нужен доступ/credentials",
+    "body": "**Что нужно:** URL GitHub-репозитория (например: `https://github.com/username/appledaily-project`)\n\n**Для чего:** Developer сделал коммит локально (`ed9f4cf` — cron активирован), но без remote URL не может сделать `git push`. Пока код не запушен — GitHub Actions не запускается, автопостер не работает.\n\n**Фаза 2 (tester)** заблокирована до пуша.\n\n---\n\nРоман, укажи URL репозитория на GitHub — и задача будет закрыта за одну операцию.",
+    "status": "resolved",
+    "ts": "2026-04-15T00:34:43.332899",
+    "thread_id": "28d41865",
+    "project_id": "2c13ec2f",
+    "decision": "ANSWERED"
+  },
+  {
+    "id": "dd0d617d",
+    "sender": "project_manager",
+    "type": "access",
+    "subject": "PM нужен доступ/credentials",
+    "body": "**Что нужно:** URL GitHub-репозитория (формат: `https://github.com/username/appledaily-project`)\n**Для чего:** DevOps добавит remote и сделает `git push` — после этого GitHub Actions запустится и автопостер будет работать каждые 2 часа",
+    "status": "resolved",
+    "ts": "2026-04-15T00:35:39.884333",
+    "thread_id": "78fd1464",
+    "project_id": "2c13ec2f",
+    "decision": "ANSWERED"
+  },
+  {
+    "id": "494523e4",
+    "sender": "project_manager",
+    "type": "question",
+    "subject": "**Согласуй роадмап:**",
+    "body": "**Согласуй роадмап:**\nКонтекст: это полный список работ по проекту, сгруппированный по приоритету\nВарианты:\n  А) Утвердить роадмап как есть — начинаем с Фазы 1 немедленно\n  Б) Скорректировать приоритеты (например, сначала монетизация, потом безопасность)\n  В) Добавить/убрать фазы\n  Г) Заморозить IL (Фаза 11) — сосредоточиться только на RU\n\nРекомендация: **А** — начать с Фазы 1 (git push + удаление rm_og_setup.php), это 30 минут работы devops и снимает критические риски",
+    "status": "resolved",
+    "ts": "2026-04-15T00:37:30.194354",
+    "thread_id": "16752c9a",
+    "project_id": "2c13ec2f",
+    "decision": "APPROVED",
+    "comment": "а"
+  },
+  {
+    "id": "630811b9",
+    "sender": "project_manager",
+    "type": "access",
+    "subject": "PM нужен доступ/credentials",
+    "body": "** (если нужны):\n- SSH ключ для iphonefeed.news сервера\n- Яндекс.Метрика ID / Google Analytics 4 Property ID\n- Яндекс РСЯ и AdSense credentials (для Фазы 4)\n\n---\n\nЖдём отчёта от devops. Фаза 1 — блокирующая остальные этапы (безопасность). ✅",
+    "status": "resolved",
+    "ts": "2026-04-15T00:52:06.210667",
+    "thread_id": "39cc4cae",
+    "project_id": "2c13ec2f",
+    "decision": "ANSWERED"
+  },
+  {
+    "id": "9ba5dbf5",
+    "sender": "project_manager",
+    "type": "question",
+    "subject": "Правильно ли понимаю, что это допустимый риск в текущей фазе?",
+    "body": "Правильно ли понимаю, что это допустимый риск в текущей фазе?\n\nЖду уточнений от DevOps. Что там с безопасностью?",
+    "status": "resolved",
+    "ts": "2026-04-15T00:53:22.720025",
+    "thread_id": "39cc4cae",
+    "project_id": "2c13ec2f",
+    "decision": "APPROVED",
+    "comment": ""
+  },
+  {
+    "id": "54756ae9",
+    "sender": "project_manager",
+    "type": "access",
+    "subject": "PM нужен доступ/credentials",
+    "body": "**Что нужно: 2 вещи — без них Фаза 1 стоит**\n\n---\n\n**1. URL GitHub-репозитория**\nПример: `https://github.com/romanzh/appledaily-project.git`\nДля чего: devops запушит включённый cron (`ed9f4cf` уже закоммичен локально) → GitHub Actions начнёт постить каждые 2 часа\n\n---\n\n**2. SSH-доступ к серверу iphonefeed.news**\nПример: логин + пароль в Hostinger hPanel → SSH\nДля чего: devops удалит `/rm_og_setup.php` (дыра безопасности, висит с прошлой сессии) + исправит miniOrange чтобы Googlebot не блокировался\n\n---\n\nОба пункта — технический доступ, не бизнес-решение. Как только получу — сразу делегирую devops без дальнейших вопросов к CEO.",
+    "status": "resolved",
+    "ts": "2026-04-15T00:55:26.994185",
+    "thread_id": "49d1abd7",
+    "project_id": "2c13ec2f",
+    "decision": "ANSWERED"
+  },
+  {
+    "id": "9ed143ca",
+    "sender": "project_manager",
+    "type": "access",
+    "subject": "PM нужен доступ/credentials",
+    "body": "**Что нужно:** GitHub Personal Access Token (PAT)\n\n**Причина:** GitHub с 2021 года не принимает пароли для Git push — только токены.\n\n**Как создать (2 минуты):**\n1. Открыть: `github.com/settings/tokens/new` (войти как `zharov.roman@gmail.com`)\n2. Название: `appledaily-push`\n3. Права: поставить галочку `repo`\n4. Нажать **Generate token** — скопировать строку (показывается один раз)\n5. Отправить сюда\n\n**После получения токена** — DevOps немедленно запушит и GitHub Actions начнёт постить каждые 2 часа.",
+    "status": "resolved",
+    "ts": "2026-04-15T00:59:30.688920",
+    "thread_id": "95a16f66",
+    "project_id": "2c13ec2f",
+    "decision": "ANSWERED"
+  }
+]
