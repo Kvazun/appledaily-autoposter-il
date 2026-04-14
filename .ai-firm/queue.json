@@ -108,5 +108,17 @@
     "thread_id": "95a16f66",
     "project_id": "2c13ec2f",
     "decision": "ANSWERED"
+  },
+  {
+    "id": "0902fef1",
+    "sender": "project_manager",
+    "type": "access",
+    "subject": "PM нужен доступ/credentials",
+    "body": "**Что нужно:** обновлённый PAT с правом `workflow`\n**Для чего:** запушить GitHub Actions workflow — без него автопостер не будет запускаться по расписанию",
+    "status": "resolved",
+    "ts": "2026-04-15T01:05:28.590239",
+    "thread_id": "a76cb3da",
+    "project_id": "2c13ec2f",
+    "decision": "ANSWERED"
   }
 ]
