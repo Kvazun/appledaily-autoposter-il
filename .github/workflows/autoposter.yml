@@ -1,9 +1,9 @@
 name: AppleDaily Autoposter
 
 on:
-  # schedule:
-  #   # Запуск каждые 2 часа (UTC)
-  #   - cron: "0 */2 * * *"
+  schedule:
+    # Запуск каждые 2 часа (UTC)
+    - cron: "0 */2 * * *"
   # Ручной запуск через GitHub UI (для тестирования)
   workflow_dispatch:
 
